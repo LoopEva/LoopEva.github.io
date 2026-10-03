@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Robotics in a Loop — a first note from LoopEva." />
+    <title>Robotics in a Loop — LoopEva</title>
+    <link rel="icon" type="image/png" href="../assets/loopeva-mark.png" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../" aria-label="LoopEva home"><img class="brand-icon" src="../assets/loopeva-mark.png" alt="" width="836" height="770" /><img class="brand-wordmark" src="../assets/loopeva-wordmark.png" alt="LoopEva" width="808" height="158" /></a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a href="../#news">News</a>
+          <a href="./" aria-current="page">Blog</a>
+          <a href="../research/">Research</a>
+          <a href="../contact/">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <article class="article">
+        <header class="article-header">
+          <div class="eyebrow">LoopEva / Essay 001</div>
+          <h1>Robotics in a Loop</h1>
+          <p class="article-dek">A first note on building robots that meet the real world, learn from it, and return better prepared.</p>
+        </header>
+        <div class="article-body">
+          <p>Robotics has always had to cross a boundary that software can often ignore: the world is not finished when the code is. A robot can look capable in a controlled setting and still meet a long tail of objects, surfaces, people, and situations that were never in the room where it learned. The next step is not only to make a stronger model. It is to build a way for the model to keep meeting the world.</p>
+          <p>We are building around three connected stages: entering the world, learning from it, and deploying back into it. LoopSkill, Looper, and LoopOS are the parts of that loop.</p>
+          <figure class="loop-figure">
+            <div class="loop-figure-frame">
+              <div class="loop-figure-header">
+                <span class="meta">01 / The learning loop</span>
+              </div>
+              <div class="loop-diagram" id="learning-loop" role="img" aria-label="LoopSkill provides scalable data collection for Looper, a steerable foundation model. LoopOS enables agentic self-improvement. Two paths return from LoopOS to Looper: fast and targeted updates, and slow and general updates.">
+                <svg class="flow-connections flow-connections-wide" viewBox="0 0 1000 432" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                  <defs>
+                    <marker id="flow-arrow-wide" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#a8bcc6" stroke-width="1.2" />
+                    </marker>
+                  </defs>
+                  <g class="flow-tracks" marker-end="url(#flow-arrow-wide)">
+                    <path d="M280 152 H370" />
+                    <path d="M630 152 H720" />
+                    <path class="flow-track-fast" d="M810 232 V274 Q810 294 790 294 H560 Q540 294 540 274 V232" />
+                    <path class="flow-track-slow" d="M890 232 V346 Q890 366 870 366 H480 Q460 366 460 346 V232" />
+                  </g>
+                  <g class="flow-pulses">
+                    <path class="flow-pulse flow-pulse-data" pathLength="100" d="M280 152 H370" />
+                    <path class="flow-pulse flow-pulse-policy" pathLength="100" d="M630 152 H720" />
+                    <path class="flow-pulse flow-pulse-fast" pathLength="100" d="M810 232 V274 Q810 294 790 294 H560 Q540 294 540 274 V232" />
+                    <path class="flow-pulse flow-pulse-slow" pathLength="100" d="M890 232 V346 Q890 366 870 366 H480 Q460 366 460 346 V232" />
+                  </g>
+                </svg>
+                <svg class="flow-connections flow-connections-narrow" viewBox="0 0 400 700" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                  <defs>
+                    <marker id="flow-arrow-narrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#a8bcc6" stroke-width="1.2" />
+                    </marker>
+                  </defs>
+                  <g class="flow-tracks" marker-end="url(#flow-arrow-narrow)">
+                    <path d="M152 188 V268" />
+                    <path d="M152 432 V512" />
+                    <path class="flow-track-fast" d="M304 562 H324 Q336 562 336 550 V394 Q336 382 324 382 H304" />
+                    <path class="flow-track-slow" d="M304 626 H368 Q388 626 388 606 V330 Q388 310 368 310 H304" />
+                  </g>
+                  <g class="flow-pulses">
+                    <path class="flow-pulse flow-pulse-data" pathLength="100" d="M152 188 V268" />
+                    <path class="flow-pulse flow-pulse-policy" pathLength="100" d="M152 432 V512" />
+                    <path class="flow-pulse flow-pulse-fast" pathLength="100" d="M304 562 H324 Q336 562 336 550 V394 Q336 382 324 382 H304" />
+                    <path class="flow-pulse flow-pulse-slow" pathLength="100" d="M304 626 H368 Q388 626 388 606 V330 Q388 310 368 310 H304" />
+                  </g>
+                </svg>
+                <div class="flow-node flow-node-skill" aria-hidden="true">
+                  <span class="flow-stage">01 / Enter</span>
+                  <span class="flow-name">LoopSkill</span>
+                  <span class="flow-purpose">Scalable Data Collection</span>
+                </div>
+                <div class="flow-node flow-node-looper" aria-hidden="true">
+                  <span class="flow-stage">02 / Pretrain</span>
+                  <span class="flow-name">Looper</span>
+                  <span class="flow-purpose">Steerable Foundation Model</span>
+                </div>
+                <div class="flow-node flow-node-os" aria-hidden="true">
+                  <span class="flow-stage">03 / Deploy</span>
+                  <span class="flow-name">LoopOS</span>
+                  <span class="flow-purpose">Agentic Self-Improvement</span>
+                </div>
+                <span class="flow-label flow-label-data" aria-hidden="true">Data</span>
+                <span class="flow-label flow-label-policy" aria-hidden="true">Model</span>
+                <span class="flow-label flow-label-fast" aria-hidden="true">Fast &amp; targeted update</span>
+                <span class="flow-label flow-label-slow" aria-hidden="true">Slow &amp; general update</span>
+              </div>
+            </div>
+            <figcaption><span>Figure 1.</span> Physical experience feeds learning. Deployment brings it back through fast, targeted updates and slower, general updates.</figcaption>
+          </figure>
+          <div class="roadmap-notes">
+            <p class="roadmap-note"><span class="roadmap-label roadmap-label-skill">01 / LoopSkill</span> <strong id="enter-title">Enter → Scalable Data Collection.</strong> The loop starts by entering real-world scenarios and collecting interaction data. For wheeled robots with grippers, this path is already well established. For humanoid robots with dexterous hands, scalable data collection remains a major bottleneck. We see this as a gateway to making robots a more general-purpose physical API.</p>
+            <p class="roadmap-note"><span class="roadmap-label roadmap-label-looper">02 / Looper</span> <strong id="pretrain-title">Pretrain → Steerable Foundation Model.</strong> We aim to build an embodied foundation model that generalizes across tasks and can be steered by both humans and agents. Steering should let the model adapt to a specific scenario without changing its parameters. Experience from deployment, across diverse tasks and mixed-quality rollouts, should then feed the next model update.</p>
+            <p class="roadmap-note"><span class="roadmap-label roadmap-label-os">03 / LoopOS</span> <strong id="deploy-title">Deploy → Agentic Self-Improvement.</strong> Deployment closes the loop. Through agent steering and minimal human supervision, a robot should adapt to new scenarios and improve through real work. The experience it gathers should update both the foundation model and the agent, so that every deployment helps the system adapt more quickly to the next.</p>
+          </div>
+          <p>We will share this work in small, concrete steps: a report when the work is ready to be read, a demo when the system is ready to be seen, and a note when an idea is ready to be tested in public.</p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <p class="footer-mark">LoopEva</p>
+        <p>© <span data-year>2026</span> LoopEva</p>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
