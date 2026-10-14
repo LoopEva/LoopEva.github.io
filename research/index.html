@@ -30,28 +30,30 @@
       </section>
 
       <section class="research-groups" aria-label="Research groups">
-        <section class="research-group" aria-labelledby="loopskill-title">
-          <h2 id="loopskill-title">LoopSkill</h2>
+        <details class="research-panel research-panel-skill" id="loopskill-panel">
+          <summary class="research-group-title" id="loopskill-title">LoopSkill</summary>
           <p class="research-coming-soon">Coming soon</p>
-        </section>
+        </details>
 
-        <section class="research-group" aria-labelledby="looper-title">
-          <h2 id="looper-title">Looper</h2>
-          <div class="research-group-body">
-            <article class="research-release">
-              <div>
-                <div class="card-kicker">Technical report</div>
-                <h3>LoopWAM</h3>
-              </div>
-              <footer><span class="status">Coming soon</span><span>Looper / 001</span></footer>
-            </article>
-          </div>
-        </section>
+        <details class="research-panel research-panel-looper" id="looper-panel" open>
+          <summary class="research-group-title" id="looper-title">Looper</summary>
+          <article class="research-release" aria-labelledby="loopwam-title">
+            <div class="research-release-kicker">Technical report</div>
+            <a class="research-project-media" href="https://loop-wam.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Open the LoopWAM project page">
+              <img src="../assets/loopwam-teaser.gif" alt="LoopWAM: deploy, collect, and improve through real-world experience." width="1200" height="519" loading="lazy" />
+            </a>
+            <div class="research-release-copy">
+              <h3 id="loopwam-title">LoopWAM: Closed-Loop Generalist Policy Improvement from Deployment Rollouts</h3>
+              <p class="research-release-description">LoopWAM turns real-world experience into better robot policies. Learning from successful, suboptimal, and failed rollouts alongside expert demonstrations, it closes the loop between deployment and improvement.</p>
+            </div>
+            <div class="research-release-series">Looper / 001</div>
+          </article>
+        </details>
 
-        <section class="research-group" aria-labelledby="loopos-title">
-          <h2 id="loopos-title">LoopOS</h2>
+        <details class="research-panel research-panel-os" id="loopos-panel">
+          <summary class="research-group-title" id="loopos-title">LoopOS</summary>
           <p class="research-coming-soon">Coming soon</p>
-        </section>
+        </details>
       </section>
     </main>
 

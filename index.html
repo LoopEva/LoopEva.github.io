@@ -44,13 +44,30 @@
       </section>
 
       <section class="release-feed" id="news" aria-label="Latest releases">
-        <!-- Keep releases in reverse chronological order: newest first.
-             Replace the placeholder with the approved video and introduction when ready. -->
         <article class="release-card" aria-labelledby="loopwam-release-title">
-          <div class="release-media release-placeholder">
-            <div>
-              <h2 id="loopwam-release-title">LoopWAM</h2>
-              <p class="release-status">Coming soon</p>
+          <div class="release-media release-media-video">
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="https://loop-wam.github.io/assets/posters/overview.jpg"
+              aria-label="LoopWAM overview: multi-task improvement and shirt folding"
+            >
+              <source src="https://loop-wam.github.io/assets/videos/overview.mp4" type="video/mp4" />
+              Your browser does not support embedded video.
+            </video>
+            <div class="release-media-fallback" aria-hidden="true">
+              <span>LoopWAM</span>
+            </div>
+            <div class="release-overlay">
+              <div class="release-overlay-copy">
+                <p class="release-status">New release / 2026</p>
+                <h2 id="loopwam-release-title">LoopWAM</h2>
+                <p>Closed-loop generalist policy improvement from deployment rollouts.</p>
+              </div>
+              <a class="release-overlay-link" href="https://loop-wam.github.io/" target="_blank" rel="noopener noreferrer">Explore the project <span aria-hidden="true">↗</span></a>
             </div>
           </div>
         </article>
